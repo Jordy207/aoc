@@ -1,5 +1,3 @@
-
-
 file1 = open('inputpuzzle2.txt', 'r')
 lines = file1.readlines()
 
