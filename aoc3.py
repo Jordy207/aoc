@@ -4,6 +4,7 @@ from operator import itemgetter
 file1 = open('inputpuzzle3.txt', 'r')
 lines = file1.read().splitlines()
 
+# Part 1
 place_to_count = {}
 for i in range(0, len(lines[0])):
     place_to_count[i] = Counter([x[i] for x in lines if len(x) > 0])
@@ -19,6 +20,7 @@ for i in range(0, len(lines[0])):
 print(int(most, 2) * int(least, 2))
 
 
+#  Part 2
 current_lines_oxy = lines.copy()
 current_lines_co2 = lines.copy()
 
@@ -46,7 +48,6 @@ while len(current_lines_oxy) > 1:
 
 position = 0
 while len(current_lines_co2) > 1:
-    # print(len(current_lines_co2))
     list_to_check = [int(x[position]) for x in current_lines_co2]
     counter = Counter(list_to_check)
     item0 = 0
