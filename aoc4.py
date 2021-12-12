@@ -41,23 +41,22 @@ for idx, line in enumerate(filelines[1:]):
         board_lines = []
         row_counter = 0
 
-# win_board = None
-# winning_num = 0
-# for number in numbers.split(","):
-#     for board in board_list:
-#         board.set_entries(int(number))
-#         if board.check_win():
-#             print("found")
-#             win_board = board.check_win()
-#             winning_num = int(number)
-#     if win_board:
-#         break
+win_board = None
+winning_num = 0
+for number in numbers.split(","):
+    for board in board_list:
+        board[0].set_entries(int(number))
+        if board[0].check_win():
+            win_board = board[0].check_win()
+            winning_num = int(number)
+    if win_board:
+        break
 
-# winning_lines = win_board.lines
-# result = sum(x[0] for x in winning_lines if not x[3])
-# print(winning_num)
-# print(result)
-# print(result * winning_num)
+winning_lines = win_board.lines
+result = sum(x[0] for x in winning_lines if not x[3])
+print(winning_num)
+print(result)
+print(result * winning_num)
 
 last_board = None
 last_num = None
@@ -70,7 +69,6 @@ for number in numbers.split(","):
     for board in board_list:
         board[0].set_entries(int(number))
         if board[0].check_win():
-            print("found")
             board[1] = True
 
 losing_lines = last_board[0].lines
